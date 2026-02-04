@@ -7,3 +7,10 @@ model = nn.Sequential(
 )
 x=torch.tensor([[0.,0.],[0.,1.],[1.,0.],[1.,1.]])
 y=torch.tensor([[0.],[1.],[1.],[0.]])
+loss_fn=nn.MSELoss()
+opt = torch.optim.Adam(model.parameters(), lr=0.01)
+for _ in range(1000):
+  opt.zero_grad()
+  loss=loss_fn(model(x),y)
+  loss.backward()
+  opt.step()
