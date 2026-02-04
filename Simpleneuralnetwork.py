@@ -14,3 +14,4 @@ for _ in range(1000):
   loss=loss_fn(model(x),y)
   loss.backward()
   opt.step()
+ print(model(x))
